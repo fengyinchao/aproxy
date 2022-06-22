@@ -1,0 +1,15 @@
+{
+  "name": "@aproxy/bridge",
+  "version": "0.0.1",
+  "description": "集抓包、调试、mock 于一身的前端开发利器",
+  "main": "index.js",
+  "scripts": {
+    "start":"echo start",
+    "build":"echo build",
+    "check-types": "tsc --noEmit -p ./tsconfig.bridge.json"
+  },
+  "npmClient": "pnpm",
+  "engines": {
+    "node": ">=16.13.0"
+  }
+}

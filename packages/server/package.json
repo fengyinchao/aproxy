@@ -1,0 +1,23 @@
+{
+  "name": "@aproxy/server",
+  "version": "0.0.1",
+  "description": "集抓包、调试、mock 于一身的前端开发利器",
+  "main": "index.js",
+  "types": "index.ts",
+  "scripts": {
+    "start": "echo server",
+    "check-types": "tsc --noEmit -p ./tsconfig.server.json",
+    "build":"tsc -p ./tsconfig.server.json"
+  },
+  "engines": {
+    "node": ">=16.13.0"
+  },
+  "devDependencies": {
+    "esno": "^0.16.3"
+  },
+  "dependencies": {
+    "@aproxy/client": "workspace:^0.0.1",
+    "inquirer": "^8.2.4",
+    "licia": "1.34.0"
+  }
+}
