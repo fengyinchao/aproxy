@@ -8,6 +8,12 @@
     },
     {
       "path": "./packages/bridge/tsconfig.bridge.json"
+    },
+    {
+      "path": "./packages/utils/tsconfig.utils.json"
+    },
+    {
+      "path": "./packages/cli/tsconfig.cli.json"
     }
   ]
 }

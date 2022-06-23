@@ -30,6 +30,7 @@ module.exports = {
       './packages/server/tsconfig.server.json',
       './packages/bridge/tsconfig.bridge.json',
       './packages/utils/tsconfig.utils.json',
+      './packages/cli/tsconfig.cli.json',
     ],
     sourceType: 'module',
   },
