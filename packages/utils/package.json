@@ -1,0 +1,19 @@
+{
+  "name": "@aproxy/utils",
+  "version": "0.0.1",
+  "main": "index.js",
+  "types": "index.ts",
+  "scripts": {
+    "start": "echo start",
+    "build": "tsc  -p ./tsconfig.utils.json",
+    "check-types": "tsc --noEmit -p ./tsconfig.utils.json"
+  },
+  "npmClient": "pnpm",
+  "engines": {
+    "node": ">=16.13.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

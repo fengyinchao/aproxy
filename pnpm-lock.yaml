@@ -55,10 +55,12 @@ importers:
 
   packages/bridge:
     specifiers:
+      '@aproxy/utils': workspace:^0.0.1
       '@types/ws': ^8.5.3
       rxjs: 7.5.1
       ws: ^8.8.0
     dependencies:
+      '@aproxy/utils': link:../utils
       rxjs: registry.npmmirror.com/rxjs/7.5.1
       ws: registry.npmmirror.com/ws/8.8.0
     devDependencies:
@@ -69,6 +71,7 @@ importers:
       '@ant-design/icons': 4.7.0
       '@aproxy/bridge': workspace:^0.0.1
       '@aproxy/server': workspace:^0.0.1
+      '@aproxy/utils': workspace:^0.0.1
       '@codemirror/lang-javascript': 0.19.3
       '@types/antd': 1.0.0
       '@types/chalk': 2.2.0
@@ -111,6 +114,7 @@ importers:
       '@ant-design/icons': 4.7.0_react-dom@17.0.0+react@17.0.0
       '@aproxy/bridge': link:../bridge
       '@aproxy/server': link:../server
+      '@aproxy/utils': link:../utils
       '@codemirror/lang-javascript': 0.19.3
       '@types/antd': 1.0.0_react-dom@17.0.0+react@17.0.0
       '@types/chalk': 2.2.0
@@ -154,6 +158,7 @@ importers:
     specifiers:
       '@aproxy/bridge': workspace:^0.0.1
       '@aproxy/client': workspace:^0.0.1
+      '@aproxy/utils': workspace:^0.0.1
       esno: ^0.16.3
       inquirer: ^8.2.4
       licia: 1.34.0
@@ -162,6 +167,7 @@ importers:
     dependencies:
       '@aproxy/bridge': link:../bridge
       '@aproxy/client': link:../client
+      '@aproxy/utils': link:../utils
       inquirer: 8.2.4
       licia: 1.34.0
       rxjs: registry.npmmirror.com/rxjs/7.5.1

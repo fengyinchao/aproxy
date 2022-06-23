@@ -16,6 +16,7 @@
     "@ant-design/icons": "4.7.0",
     "@aproxy/bridge": "workspace:^0.0.1",
     "@aproxy/server": "workspace:^0.0.1",
+    "@aproxy/utils": "workspace:^0.0.1",
     "@codemirror/lang-javascript": "0.19.3",
     "@types/antd": "1.0.0",
     "@types/chalk": "2.2.0",

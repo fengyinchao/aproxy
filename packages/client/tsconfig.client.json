@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsxdev",
-    "outDir": "./dist/client"
+    "outDir": "./dist"
   },
   "include": ["./"]
 }
