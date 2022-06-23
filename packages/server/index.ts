@@ -1,3 +1,9 @@
+/* eslint-disable no-console */
+import { skip } from 'rxjs';
+import * as express from 'express';
+import * as http from 'http';
+import { WSServer } from '@aproxy/bridge';
+
 export function parseFormData(str) {
   const arr = str
     .replace(/\r/g, '')
@@ -88,3 +94,19 @@ export const formatSeconds = (sec: number): string => {
 
   return `${sec}ms`;
 };
+
+const app = express();
+
+const httpserver = http.createServer({}, (req, res) => {
+  app.handle(req, res);
+});
+
+const wsServer = new WSServer(httpserver);
+
+wsServer.message$.pipe(skip(1)).subscribe(msg => {
+  // console.log('===msg', msg.data);
+});
+
+httpserver.listen(8888, () => {
+  console.log(`Secure Server is listening on port 8888`);
+});

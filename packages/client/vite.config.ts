@@ -8,35 +8,34 @@ const isDev = process.env.NODE_ENV === 'development';
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
 // https://vitejs.dev/config/
-const libBuild = defineConfig({
-  root: './',
-  base: '/dist/',
-  build: {
-    outDir: './dist',
-    emptyOutDir: false,
-    lib: {
-      entry: './inspect.ts',
-      name: 'BproxyInspect',
-      fileName: 'inspect',
-      formats: ['umd'],
-    },
-  },
-  css: {
-    preprocessorOptions: {
-      less: {
-        modifyVars: getThemeVariables({
-          dark: true,
-          compact: true,
-        }),
-        javascriptEnabled: true,
-      },
-    },
-  },
-});
+// const libBuild = defineConfig({
+//   root: './',
+//   base: '/dist/',
+//   build: {
+//     outDir: './dist',
+//     emptyOutDir: false,
+//     lib: {
+//       entry: './inspect.ts',
+//       name: 'BproxyInspect',
+//       fileName: 'inspect',
+//       formats: ['umd'],
+//     },
+//   },
+//   css: {
+//     preprocessorOptions: {
+//       less: {
+//         modifyVars: getThemeVariables({
+//           dark: true,
+//           compact: true,
+//         }),
+//         javascriptEnabled: true,
+//       },
+//     },
+//   },
+// });
 
 const pageBuild = defineConfig({
-  root: './',
-  base: '/dist/',
+  root: './', // html 所在位置
   build: {
     outDir: './dist',
     emptyOutDir: false,
@@ -54,9 +53,10 @@ const pageBuild = defineConfig({
   },
   server: {
     port: 8889,
+    open: true,
   },
   plugins: [react()],
 });
 
-const config = !isDev ? libBuild : pageBuild;
-export default config;
+// const config = !isDev ? libBuild : pageBuild;
+export default pageBuild;

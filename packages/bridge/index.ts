@@ -11,5 +11,7 @@ export interface IWsMessage<T = Record<string, any>> {
   payload?: T;
 }
 
-export * from './wsClient';
-export * from './wsServer';
+import WSClient from './wsClient';
+import WSServer from './wsServer';
+
+export { WSClient, WSServer };

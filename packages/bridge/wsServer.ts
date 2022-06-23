@@ -1,8 +1,8 @@
-import ws from 'ws';
+import * as ws from 'ws';
 import { Server as HTTPServer } from 'http';
 import { Server as HTTPSServer } from 'https';
 import { BehaviorSubject } from 'rxjs';
-import { IWsMessage, WsMessageTypeEnum } from 'index';
+import { IWsMessage, WsMessageTypeEnum } from './index';
 
 declare module 'ws' {
   interface WebSocket {

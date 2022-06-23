@@ -1,4 +1,4 @@
-import { IWsMessage, WsMessageTypeEnum } from 'index';
+import { IWsMessage, WsMessageTypeEnum } from './index';
 import { BehaviorSubject } from 'rxjs';
 
 interface IWsClientConfig {
@@ -22,10 +22,10 @@ class WSClient {
   private connect(url: string) {
     this.websocket = new WebSocket(url);
     this.websocket.onopen = () => {
-      this.message$.next({ type: WsMessageTypeEnum.CONNECTED });
+      this.message$.next({ type: WsMessageTypeEnum.CONNECTED, payload: { msg: '已连接' } });
     };
     this.websocket.onclose = () => {
-      this.message$.next({ type: WsMessageTypeEnum.CLOSED });
+      this.message$.next({ type: WsMessageTypeEnum.CLOSED, payload: { msg: '已断开' } });
     };
     this.websocket.onmessage = e => {
       const data: IWsMessage = JSON.parse(e.data);

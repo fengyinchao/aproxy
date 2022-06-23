@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
+    "@aproxy/bridge": "workspace:^0.0.1",
     "@aproxy/server": "workspace:^0.0.1",
     "@codemirror/lang-javascript": "0.19.3",
     "@types/antd": "1.0.0",
@@ -39,6 +40,7 @@
     "eslint": "6.6.0",
     "jest": "26.4.2",
     "less": "4.1.2",
+    "licia": "1.34.0",
     "prettier": "2.4.1",
     "qrcode": "1.4.4",
     "qs": "6.10.1",
@@ -51,7 +53,6 @@
     "ts-jest": "26.4.0",
     "ts-node": "8.10.2",
     "typescript": "^4.4.4",
-    "vite": "^2.9.10",
-    "licia": "1.34.0"
+    "vite": "^2.9.10"
   }
 }

@@ -5,19 +5,22 @@
   "main": "index.js",
   "types": "index.ts",
   "scripts": {
-    "start": "echo server",
+    "start": "ts-node index.ts",
     "check-types": "tsc --noEmit -p ./tsconfig.server.json",
-    "build":"tsc -p ./tsconfig.server.json"
+    "build": "tsc -p ./tsconfig.server.json"
   },
   "engines": {
     "node": ">=16.13.0"
   },
   "devDependencies": {
-    "esno": "^0.16.3"
+    "esno": "^0.16.3",
+    "ts-node": "^10.8.1"
   },
   "dependencies": {
+    "@aproxy/bridge": "workspace:^0.0.1",
     "@aproxy/client": "workspace:^0.0.1",
     "inquirer": "^8.2.4",
-    "licia": "1.34.0"
+    "licia": "1.34.0",
+    "rxjs": "7.5.1"
   }
 }

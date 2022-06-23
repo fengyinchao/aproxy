@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "集抓包、调试、mock 于一身的前端开发利器",
   "main": "index.js",
+  "types": "index.ts",
   "scripts": {
     "start": "echo start",
     "build": "echo build",
