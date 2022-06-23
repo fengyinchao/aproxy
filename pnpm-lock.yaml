@@ -54,7 +54,10 @@ importers:
       wait-on: 5.2.0
 
   packages/bridge:
-    specifiers: {}
+    specifiers:
+      rxjs: 7.5.1
+    dependencies:
+      rxjs: registry.npmmirror.com/rxjs/7.5.1
 
   packages/client:
     specifiers:
@@ -10267,6 +10270,14 @@ packages:
       lowercase-keys: registry.npmmirror.com/lowercase-keys/1.0.1
     dev: true
 
+  registry.npmmirror.com/rxjs/7.5.1:
+    resolution: {integrity: sha512-KExVEeZWxMZnZhUZtsJcFwz8IvPvgu4G2Z2QyqjZQzUGr32KDYuSxrEYO4w3tFFNbfLozcrKUTvTPi+E9ywJkQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rxjs/-/rxjs-7.5.1.tgz}
+    name: rxjs
+    version: 7.5.1
+    dependencies:
+      tslib: registry.npmmirror.com/tslib/2.4.0
+    dev: false
+
   registry.npmmirror.com/semver-diff/3.1.1:
     resolution: {integrity: sha512-GX0Ix/CJcHyB8c4ykpHGIAvLyOwOobtM/8d+TQkAd81/bEjgPHrfba41Vpesr7jX/t8Uh+R3EX9eAS5be+jQYg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/semver-diff/-/semver-diff-3.1.1.tgz}
     name: semver-diff
@@ -10386,6 +10397,12 @@ packages:
     dependencies:
       nopt: registry.npmmirror.com/nopt/1.0.10
     dev: true
+
+  registry.npmmirror.com/tslib/2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tslib/-/tslib-2.4.0.tgz}
+    name: tslib
+    version: 2.4.0
+    dev: false
 
   registry.npmmirror.com/turbo-darwin-64/1.2.16:
     resolution: {integrity: sha512-dyitLQJdH3uLVdlH9jAkP4LqEO/K+wOXjUqOzjTciRLjQPzmsNY60/bmFHODADK4eBBl1nxbtn7tmmoT4vS1qA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/turbo-darwin-64/-/turbo-darwin-64-1.2.16.tgz}

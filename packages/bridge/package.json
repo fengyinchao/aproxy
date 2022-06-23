@@ -4,12 +4,15 @@
   "description": "集抓包、调试、mock 于一身的前端开发利器",
   "main": "index.js",
   "scripts": {
-    "start":"echo start",
-    "build":"echo build",
-    "check-types": "tsc --noEmit -p ./tsconfig.bridge.json"
+    "start": "echo start",
+    "build": "echo build",
+    "check-types": "tsc --noEmit -p ./tsconfig.bridge.json --showConfig"
   },
   "npmClient": "pnpm",
   "engines": {
     "node": ">=16.13.0"
+  },
+  "dependencies": {
+    "rxjs": "7.5.1"
   }
 }
