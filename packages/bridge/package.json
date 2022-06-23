@@ -6,7 +6,7 @@
   "scripts": {
     "start": "echo start",
     "build": "echo build",
-    "check-types": "tsc --noEmit -p ./tsconfig.bridge.json --showConfig"
+    "check-types": "tsc --noEmit -p ./tsconfig.bridge.json"
   },
   "npmClient": "pnpm",
   "engines": {
