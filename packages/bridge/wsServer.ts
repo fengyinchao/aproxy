@@ -2,7 +2,7 @@ import * as ws from 'ws';
 import { Server as HTTPServer } from 'http';
 import { Server as HTTPSServer } from 'https';
 import { BehaviorSubject } from 'rxjs';
-import { IWsMessage, WsMessageTypeEnum } from './index';
+import { IWsMessage, Log, WsMessageTypeEnum } from './index';
 
 declare module 'ws' {
   interface WebSocket {
@@ -37,8 +37,7 @@ class WSServer {
       });
       socket.on('message', (message: string) => {
         const formatedMessage: IWsMessage = JSON.parse(message);
-        // eslint-disable-next-line no-console
-        console.log('收到客户端消息：', formatedMessage);
+        Log(formatedMessage);
         this.message$.next({ data: formatedMessage, socket });
       });
     });

@@ -21,6 +21,7 @@
     "@aproxy/bridge": "workspace:^0.0.1",
     "@aproxy/utils": "workspace:^0.0.1",
     "commander": "^9.3.0",
+    "debug": "^4.3.4",
     "inquirer": "^8.2.4",
     "licia": "1.34.0",
     "rxjs": "7.5.1"

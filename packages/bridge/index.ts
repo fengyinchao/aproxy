@@ -20,4 +20,8 @@ if (typeof process !== 'undefined') {
   WSServer = require('./wsServer').default;
 }
 
-export { WSClient, WSServer };
+import { createDebug } from '@aproxy/utils';
+
+const Log = createDebug('@aproxy/bridge');
+
+export { WSClient, WSServer, Log };

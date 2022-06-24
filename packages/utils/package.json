@@ -13,7 +13,6 @@
     "node": ">=16.13.0"
   },
   "dependencies": {
-  },
-  "devDependencies": {
+    "debug": "^4.3.4"
   }
 }

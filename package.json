@@ -9,7 +9,6 @@
     "start-server": "pnpm --filter @aproxy/server start",
     "start-bridge": "pnpm --filter @aproxy/bridge start",
     "start-utils": "pnpm --filter @aproxy/utils start",
-
     "build": "pnpm build-utils && pnpm build-bridge && pnpm build-client && pnpm build-server",
     "build-client": "pnpm --filter @aproxy/client build",
     "build-server": "pnpm --filter @aproxy/server build",
@@ -40,6 +39,7 @@
     ]
   },
   "dependencies": {
+    "debug": "^4.3.4",
     "tslib": "2.0.2"
   },
   "devDependencies": {

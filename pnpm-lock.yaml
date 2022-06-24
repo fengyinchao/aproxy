@@ -10,6 +10,7 @@ importers:
       '@typescript-eslint/parser': 4.4.0
       concurrently: 5.3.0
       cross-env: 7.0.2
+      debug: ^4.3.4
       eslint: 7.10.0
       eslint-config-airbnb-base: 14.2.0
       eslint-plugin-import: 2.22.1
@@ -29,6 +30,7 @@ importers:
       typescript: 4.7.3
       wait-on: 5.2.0
     dependencies:
+      debug: registry.npmmirror.com/debug/4.3.4
       tslib: 2.0.2
     devDependencies:
       '@changesets/cli': 2.22.0
@@ -59,10 +61,12 @@ importers:
     specifiers:
       '@aproxy/utils': workspace:^0.0.1
       '@types/ws': ^8.5.3
+      debug: ^4.3.4
       rxjs: 7.5.1
       ws: ^8.8.0
     dependencies:
       '@aproxy/utils': link:../utils
+      debug: registry.npmmirror.com/debug/4.3.4
       rxjs: registry.npmmirror.com/rxjs/7.5.1
       ws: registry.npmmirror.com/ws/8.8.0
     devDependencies:
@@ -95,6 +99,7 @@ importers:
       classnames: 2.3.1
       copy-to-clipboard: 3.3.1
       cross-env: 7.0.3
+      debug: ^4.3.4
       eslint: 6.6.0
       jest: 26.4.2
       less: 4.1.2
@@ -138,6 +143,7 @@ importers:
       classnames: 2.3.1
       copy-to-clipboard: 3.3.1
       cross-env: 7.0.3
+      debug: registry.npmmirror.com/debug/4.3.4
       eslint: 6.6.0
       jest: 26.4.2_ts-node@8.10.2
       less: 4.1.2
@@ -161,6 +167,7 @@ importers:
       '@aproxy/bridge': workspace:^0.0.1
       '@aproxy/utils': workspace:^0.0.1
       commander: ^9.3.0
+      debug: ^4.3.4
       esno: ^0.16.3
       inquirer: ^8.2.4
       licia: 1.34.0
@@ -171,6 +178,7 @@ importers:
       '@aproxy/bridge': link:../bridge
       '@aproxy/utils': link:../utils
       commander: registry.npmmirror.com/commander/9.3.0
+      debug: registry.npmmirror.com/debug/4.3.4
       inquirer: 8.2.4
       licia: 1.34.0
       rxjs: registry.npmmirror.com/rxjs/7.5.1
@@ -180,7 +188,10 @@ importers:
       ts-node: registry.npmmirror.com/ts-node/10.8.1_c1c82a15661bd4248d4ebf4e786e9334
 
   packages/utils:
-    specifiers: {}
+    specifiers:
+      debug: ^4.3.4
+    dependencies:
+      debug: registry.npmmirror.com/debug/4.3.4
 
 packages:
 
@@ -1664,7 +1675,7 @@ packages:
       '@typescript-eslint/experimental-utils': 4.4.0_eslint@7.10.0+typescript@4.7.3
       '@typescript-eslint/parser': 4.4.0_eslint@7.10.0+typescript@4.7.3
       '@typescript-eslint/scope-manager': 4.4.0
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
       eslint: 7.10.0
       functional-red-black-tree: 1.0.1
       regexpp: 3.2.0
@@ -1737,7 +1748,7 @@ packages:
       '@typescript-eslint/scope-manager': 4.4.0
       '@typescript-eslint/types': 4.4.0
       '@typescript-eslint/typescript-estree': 4.4.0_typescript@4.7.3
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
       eslint: 7.10.0
       typescript: registry.npmmirror.com/typescript/4.7.3
     transitivePeerDependencies:
@@ -1766,7 +1777,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
       glob: 7.2.3
       is-glob: 4.0.3
       lodash.unescape: 4.0.1
@@ -1788,7 +1799,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': 4.4.0
       '@typescript-eslint/visitor-keys': 4.4.0
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
       lodash: 4.17.21
@@ -1888,7 +1899,7 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
     dependencies:
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -2997,27 +3008,6 @@ packages:
     resolution: {integrity: sha512-xxwlswWOlGhzgQ4TKzASQkUhqERI3egRNqgV4ScR8wlANA/A9tZ7miXa44vTTKEq5l7vWoL5G57bG3zA+Kow0A==}
     dev: false
 
-  /debug/2.6.9:
-    resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
-    dependencies:
-      ms: 2.0.0
-
-  /debug/3.2.7:
-    resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
-    dependencies:
-      ms: registry.npmmirror.com/ms/2.1.3
-
-  /debug/4.3.4:
-    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
-    engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-    dependencies:
-      ms: 2.1.2
-
   /decamelize-keys/1.1.0:
     resolution: {integrity: sha512-ocLWuYzRPoS9bfiSdDd3cxvrzovVMZnRDVEzAs+hWIVXGDbHxWMECij2OBuyB/An0FFW/nLuq6Kv1i/YC5Qfzg==}
     engines: {node: '>=0.10.0'}
@@ -3371,7 +3361,7 @@ packages:
   /eslint-import-resolver-node/0.3.6:
     resolution: {integrity: sha512-0En0w03NRVMn9Uiyn8YRPDKvWjxCWkslUEhGNTdGx15RvPJYQ+lbOlqrlNI2vEAs4pDYK4f/HN2TbDmk5TP0iw==}
     dependencies:
-      debug: 3.2.7
+      debug: registry.npmmirror.com/debug/3.2.7
       resolve: 1.22.0
     dev: true
 
@@ -3379,7 +3369,7 @@ packages:
     resolution: {integrity: sha512-088JEC7O3lDZM9xGe0RerkOMd0EjFl+Yvd1jPWIkMT5u3H9+HC34mWWPnqPrN13gieT9pBOO+Qt07Nb/6TresQ==}
     engines: {node: '>=4'}
     dependencies:
-      debug: 3.2.7
+      debug: registry.npmmirror.com/debug/3.2.7
       find-up: 2.1.0
     dev: true
 
@@ -3392,7 +3382,7 @@ packages:
       array-includes: 3.1.5
       array.prototype.flat: 1.3.0
       contains-path: 0.1.0
-      debug: 2.6.9
+      debug: registry.npmmirror.com/debug/2.6.9
       doctrine: 1.5.0
       eslint: 7.10.0
       eslint-import-resolver-node: 0.3.6
@@ -3456,7 +3446,7 @@ packages:
       ajv: 6.12.6
       chalk: 2.4.2
       cross-spawn: 6.0.5
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
       doctrine: 3.0.0
       eslint-scope: 5.1.1
       eslint-utils: 1.4.3
@@ -3503,7 +3493,7 @@ packages:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.3
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
       doctrine: 3.0.0
       enquirer: 2.3.6
       eslint-scope: 5.1.1
@@ -3644,7 +3634,7 @@ packages:
     resolution: {integrity: sha512-w/ozOKR9Obk3qoWeY/WDi6MFta9AoMR+zud60mdnbniMcBxRuFJyDt2LdX/14A1UABeqk+Uk+LDfUpvoGKppZA==}
     engines: {node: '>=0.10.0'}
     dependencies:
-      debug: 2.6.9
+      debug: registry.npmmirror.com/debug/2.6.9
       define-property: 0.2.5
       extend-shallow: 2.0.1
       posix-character-classes: 0.1.1
@@ -4259,7 +4249,7 @@ packages:
     dependencies:
       '@tootallnate/once': 1.1.2
       agent-base: 6.0.2
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -4269,7 +4259,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -4805,7 +4795,7 @@ packages:
     resolution: {integrity: sha512-n3s8EwkdFIJCG3BPKBYvskgXGoy88ARzvegkitk60NxRdwltLOTaH7CUiMRXvwYorl0Q712iEjcWB+fK/MrWVw==}
     engines: {node: '>=10'}
     dependencies:
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
       istanbul-lib-coverage: 3.2.0
       source-map: registry.npmmirror.com/source-map/0.6.1
     transitivePeerDependencies:
@@ -5467,7 +5457,7 @@ packages:
       cli-truncate: 2.1.0
       commander: 6.2.1
       cosmiconfig: 7.0.1
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
       dedent: 0.7.0
       enquirer: 2.3.6
       execa: 4.1.0
@@ -5943,12 +5933,6 @@ packages:
   /moment/2.29.3:
     resolution: {integrity: sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw==}
     dev: false
-
-  /ms/2.0.0:
-    resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}
-
-  /ms/2.1.2:
-    resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
 
   /mute-stream/0.0.8:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
@@ -7810,7 +7794,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       base: 0.11.2
-      debug: 2.6.9
+      debug: registry.npmmirror.com/debug/2.6.9
       define-property: 0.2.5
       extend-shallow: 2.0.1
       map-cache: 0.2.2
@@ -8142,7 +8126,7 @@ packages:
       balanced-match: 1.0.2
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      debug: 4.3.4
+      debug: registry.npmmirror.com/debug/4.3.4
       execall: 2.0.0
       fast-glob: 3.2.11
       fastest-levenshtein: 1.0.12
@@ -8453,7 +8437,7 @@ packages:
       diff: 4.0.2
       make-error: 1.3.6
       source-map-support: 0.5.21
-      typescript: registry.npmmirror.com/typescript/4.7.3
+      typescript: 4.7.3
       yn: 3.1.1
 
   /tsconfig-paths/3.14.1:
@@ -9357,6 +9341,13 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  registry.npmmirror.com/debug/2.6.9:
+    resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/debug/-/debug-2.6.9.tgz}
+    name: debug
+    version: 2.6.9
+    dependencies:
+      ms: registry.npmmirror.com/ms/2.0.0
+
   registry.npmmirror.com/debug/3.1.0:
     resolution: {integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/debug/-/debug-3.1.0.tgz}
     name: debug
@@ -9371,7 +9362,6 @@ packages:
     version: 3.2.7
     dependencies:
       ms: registry.npmmirror.com/ms/2.1.3
-    dev: true
 
   registry.npmmirror.com/debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/debug/-/debug-4.3.4.tgz}
@@ -9384,7 +9374,7 @@ packages:
       supports-color:
         optional: true
     dependencies:
-      ms: 2.1.2
+      ms: registry.npmmirror.com/ms/2.1.2
 
   registry.npmmirror.com/decompress-response/3.3.0:
     resolution: {integrity: sha512-BzRPQuY1ip+qDonAOz42gRm/pg9F768C+npV/4JOsxRC2sq+Rlk+Q4ZCAsOhnIaMrgarILY+RMUIvMmmX1qAEA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/decompress-response/-/decompress-response-3.3.0.tgz}
@@ -10281,7 +10271,11 @@ packages:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ms/-/ms-2.0.0.tgz}
     name: ms
     version: 2.0.0
-    dev: true
+
+  registry.npmmirror.com/ms/2.1.2:
+    resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ms/-/ms-2.1.2.tgz}
+    name: ms
+    version: 2.1.2
 
   registry.npmmirror.com/ms/2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ms/-/ms-2.1.3.tgz}
@@ -10296,7 +10290,7 @@ packages:
     hasBin: true
     requiresBuild: true
     dependencies:
-      debug: 3.2.7
+      debug: registry.npmmirror.com/debug/3.2.7
       iconv-lite: 0.4.24
       sax: 1.2.4
     dev: false

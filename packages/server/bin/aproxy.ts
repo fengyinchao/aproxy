@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 
 import { Command } from 'commander';
-import { dev } from '../dev';
+import { dev } from '../index';
 
 const program = new Command();
 
