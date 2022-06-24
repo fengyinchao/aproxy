@@ -6,12 +6,18 @@ export enum WsMessageTypeEnum {
   CLIENT = 4, // Client 发过来的消息
 }
 
-export interface IWsMessage<T = Record<string, any>> {
+export interface IWsMessage<T = Record<string, unknown>> {
   type: WsMessageTypeEnum;
   payload?: T;
 }
 
 import WSClient from './wsClient';
-import WSServer from './wsServer';
+
+let WSServer = null;
+
+if (typeof process !== 'undefined') {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  WSServer = require('./wsServer').default;
+}
 
 export { WSClient, WSServer };

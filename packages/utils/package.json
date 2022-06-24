@@ -1,11 +1,11 @@
 {
   "name": "@aproxy/utils",
   "version": "0.0.1",
-  "main": "index.js",
-  "types": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "echo start",
-    "build": "tsc  -p ./tsconfig.utils.json",
+    "start": "rimraf dist && tsc  -p ./tsconfig.utils.json",
+    "build": "rimraf dist && tsc  -p ./tsconfig.utils.json",
     "check-types": "tsc --noEmit -p ./tsconfig.utils.json"
   },
   "npmClient": "pnpm",

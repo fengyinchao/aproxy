@@ -1,6 +1,6 @@
 {
-  "watch": ["packages/server","packages/bridge"],
+  "watch": ["packages/server","!packages/server/dist","packages/bridge","!packages/bridge/dist","packages/utils","!packages/utils/dist"],
   "ignore": ["**/*.spec.ts"],
   "ext": "ts",
-  "exec": "yarn start-bridge && yarn start-server"
+  "exec": "yarn start-utils && yarn start-bridge && yarn start-server"
 }

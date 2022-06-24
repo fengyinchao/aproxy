@@ -1,6 +1,6 @@
 import 'animate.css';
 // import './App.scss';
-import { WSClient, WsMessageTypeEnum } from '@aproxy/bridge';
+import { WsMessageTypeEnum,WSClient } from '@aproxy/bridge';
 import { useEffect, useState } from 'react';
 
 const wsClient = new WSClient({ url: 'ws://localhost:8888' });

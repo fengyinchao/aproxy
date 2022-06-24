@@ -18,6 +18,7 @@ importers:
       lint-staged: 10.4.0
       nodemon: ^2.0.16
       prettier: 2.1.2
+      rimraf: 3.0.2
       standard-version: 9.0.0
       stylelint: 13.7.1
       stylelint-config-prettier: 8.0.2
@@ -44,6 +45,7 @@ importers:
       lint-staged: 10.4.0
       nodemon: registry.npmmirror.com/nodemon/2.0.16
       prettier: 2.1.2
+      rimraf: registry.npmmirror.com/rimraf/3.0.2
       standard-version: 9.0.0
       stylelint: 13.7.1
       stylelint-config-prettier: 8.0.2_stylelint@13.7.1
@@ -66,17 +68,10 @@ importers:
     devDependencies:
       '@types/ws': registry.npmmirror.com/@types/ws/8.5.3
 
-  packages/cli:
-    specifiers:
-      '@aproxy/server': workspace:^0.0.1
-    dependencies:
-      '@aproxy/server': link:../server
-
   packages/client:
     specifiers:
       '@ant-design/icons': 4.7.0
       '@aproxy/bridge': workspace:^0.0.1
-      '@aproxy/cli': workspace:^0.0.1
       '@aproxy/server': workspace:^0.0.1
       '@aproxy/utils': workspace:^0.0.1
       '@codemirror/lang-javascript': 0.19.3
@@ -160,23 +155,20 @@ importers:
       ts-node: 8.10.2_typescript@4.7.3
       typescript: 4.7.3
       vite: 2.9.10_less@4.1.2+sass@1.43.2
-    devDependencies:
-      '@aproxy/cli': link:../cli
 
   packages/server:
     specifiers:
       '@aproxy/bridge': workspace:^0.0.1
-      '@aproxy/client': workspace:^0.0.1
       '@aproxy/utils': workspace:^0.0.1
       commander: ^9.3.0
       esno: ^0.16.3
       inquirer: ^8.2.4
       licia: 1.34.0
+      rimraf: 3.0.2
       rxjs: 7.5.1
       ts-node: ^10.8.1
     dependencies:
       '@aproxy/bridge': link:../bridge
-      '@aproxy/client': link:../client
       '@aproxy/utils': link:../utils
       commander: registry.npmmirror.com/commander/9.3.0
       inquirer: 8.2.4
@@ -184,7 +176,11 @@ importers:
       rxjs: registry.npmmirror.com/rxjs/7.5.1
     devDependencies:
       esno: 0.16.3
+      rimraf: registry.npmmirror.com/rimraf/3.0.2
       ts-node: registry.npmmirror.com/ts-node/10.8.1_c1c82a15661bd4248d4ebf4e786e9334
+
+  packages/utils:
+    specifiers: {}
 
 packages:
 
@@ -2627,7 +2623,7 @@ packages:
     engines: {'0': node >= 6.0}
     dependencies:
       buffer-from: 1.1.2
-      inherits: 2.0.4
+      inherits: registry.npmmirror.com/inherits/2.0.4
       readable-stream: 3.6.0
       typedarray: 0.0.6
     dev: true
@@ -3831,7 +3827,7 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       flatted: 2.0.2
-      rimraf: 2.6.3
+      rimraf: registry.npmmirror.com/rimraf/2.6.3
       write: 1.0.3
 
   /flatted/2.0.2:
@@ -3892,6 +3888,7 @@ packages:
 
   /fs.realpath/1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
+    dev: false
 
   /function-bind/1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
@@ -4050,6 +4047,7 @@ packages:
       minimatch: registry.npmmirror.com/minimatch/3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
+    dev: false
 
   /global-modules/2.0.0:
     resolution: {integrity: sha512-NGbfmJBp9x8IxyJSd1P+otYK8vonoJactOogrVfFRIAEY1ukil8RSKDz2Yo7wh1oihl51l/r6W4epkeKJHqL8A==}
@@ -4251,7 +4249,7 @@ packages:
       domhandler: 2.4.2
       domutils: 1.7.0
       entities: 1.1.2
-      inherits: 2.0.4
+      inherits: registry.npmmirror.com/inherits/2.0.4
       readable-stream: 3.6.0
     dev: true
 
@@ -4368,9 +4366,11 @@ packages:
     dependencies:
       once: registry.npmmirror.com/once/1.4.0
       wrappy: 1.0.2
+    dev: false
 
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+    dev: false
 
   /inquirer/7.3.3:
     resolution: {integrity: sha512-JG3eIAj5V9CwcGvuOmoo6LB9kbAYT8HXffUl6memuszlwDC/qvFAJw49XJ5NROSFNPxp3iQg1GqkFhaY/CR0IA==}
@@ -6131,6 +6131,7 @@ packages:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
     dependencies:
       wrappy: 1.0.2
+    dev: false
 
   /onetime/5.1.2:
     resolution: {integrity: sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==}
@@ -6347,6 +6348,7 @@ packages:
   /path-is-absolute/1.0.1:
     resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==}
     engines: {node: '>=0.10.0'}
+    dev: false
 
   /path-key/2.0.1:
     resolution: {integrity: sha512-fEHGKCSmUSDPv4uoj8AlD+joPlq3peND+HRYyxFz4KPw4z926S/b8rIuFs2FYJg3BwsxJf6A9/3eIdLaYC+9Dw==}
@@ -6647,7 +6649,7 @@ packages:
     resolution: {integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==}
     dependencies:
       end-of-stream: 1.4.4
-      once: 1.4.0
+      once: registry.npmmirror.com/once/1.4.0
 
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
@@ -7372,7 +7374,7 @@ packages:
     resolution: {integrity: sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==}
     dependencies:
       core-util-is: 1.0.3
-      inherits: 2.0.4
+      inherits: registry.npmmirror.com/inherits/2.0.4
       isarray: 1.0.0
       process-nextick-args: 2.0.1
       safe-buffer: 5.1.2
@@ -7384,7 +7386,7 @@ packages:
     resolution: {integrity: sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==}
     engines: {node: '>= 6'}
     dependencies:
-      inherits: 2.0.4
+      inherits: registry.npmmirror.com/inherits/2.0.4
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
 
@@ -7555,19 +7557,6 @@ packages:
   /reusify/1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
-    dev: true
-
-  /rimraf/2.6.3:
-    resolution: {integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==}
-    hasBin: true
-    dependencies:
-      glob: 7.2.3
-
-  /rimraf/2.7.1:
-    resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
-    hasBin: true
-    dependencies:
-      glob: 7.2.3
     dev: true
 
   /rimraf/3.0.2:
@@ -8445,7 +8434,7 @@ packages:
       minimist: 1.2.6
       mkdirp: 1.0.4
       resolve: 1.22.0
-      rimraf: 2.7.1
+      rimraf: registry.npmmirror.com/rimraf/2.7.1
       source-map-support: 0.5.21
       tree-kill: 1.2.2
       ts-node: 8.10.2_typescript@4.7.3
@@ -8464,7 +8453,7 @@ packages:
       diff: 4.0.2
       make-error: 1.3.6
       source-map-support: 0.5.21
-      typescript: 4.7.3
+      typescript: registry.npmmirror.com/typescript/4.7.3
       yn: 3.1.1
 
   /tsconfig-paths/3.14.1:
@@ -8503,7 +8492,7 @@ packages:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-      typescript: 4.7.3
+      typescript: registry.npmmirror.com/typescript/4.7.3
 
   /tsx/3.4.2:
     resolution: {integrity: sha512-Rd1gm2noOUiVynF+VFxo4bVBNbzS6haWKWtlQ0bEfCLLEqm+GG3R98D3Rqk6foQ3NnJk6JAWOx1ragwcAPj4Lg==}
@@ -8865,6 +8854,7 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=}
+    dev: false
 
   /write-file-atomic/3.0.3:
     resolution: {integrity: sha512-AvHcyZ5JnSfq3ioSyjrBkH9yW4m7Ayk8/9My/DD9onKeu/94fwrMocemO2QAJFAlnnDN+ZDS+ZjAR5ua1/PV/Q==}
@@ -9924,6 +9914,11 @@ packages:
     dependencies:
       to-regex-range: registry.npmmirror.com/to-regex-range/5.0.1
 
+  registry.npmmirror.com/fs.realpath/1.0.0:
+    resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fs.realpath/-/fs.realpath-1.0.0.tgz}
+    name: fs.realpath
+    version: 1.0.0
+
   registry.npmmirror.com/fsevents/2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-2.3.2.tgz}
     name: fsevents
@@ -9959,6 +9954,18 @@ packages:
     dependencies:
       is-glob: registry.npmmirror.com/is-glob/4.0.3
     dev: true
+
+  registry.npmmirror.com/glob/7.2.3:
+    resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/glob/-/glob-7.2.3.tgz}
+    name: glob
+    version: 7.2.3
+    dependencies:
+      fs.realpath: registry.npmmirror.com/fs.realpath/1.0.0
+      inflight: registry.npmmirror.com/inflight/1.0.6
+      inherits: registry.npmmirror.com/inherits/2.0.4
+      minimatch: registry.npmmirror.com/minimatch/3.1.2
+      once: registry.npmmirror.com/once/1.4.0
+      path-is-absolute: registry.npmmirror.com/path-is-absolute/1.0.1
 
   registry.npmmirror.com/global-dirs/3.0.0:
     resolution: {integrity: sha512-v8ho2DS5RiCjftj1nD9NmnfaOzTdud7RRnVd9kFNOjqZbISlx5DQ+OrTkywgd0dIt7oFCvKetZSHoHcP3sDdiA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/global-dirs/-/global-dirs-3.0.0.tgz}
@@ -10047,6 +10054,19 @@ packages:
     version: 0.1.4
     engines: {node: '>=0.8.19'}
     dev: true
+
+  registry.npmmirror.com/inflight/1.0.6:
+    resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/inflight/-/inflight-1.0.6.tgz}
+    name: inflight
+    version: 1.0.6
+    dependencies:
+      once: registry.npmmirror.com/once/1.4.0
+      wrappy: registry.npmmirror.com/wrappy/1.0.2
+
+  registry.npmmirror.com/inherits/2.0.4:
+    resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/inherits/-/inherits-2.0.4.tgz}
+    name: inherits
+    version: 2.0.4
 
   registry.npmmirror.com/ini/1.3.8:
     resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ini/-/ini-1.3.8.tgz}
@@ -10365,6 +10385,12 @@ packages:
       semver: registry.npmmirror.com/semver/6.3.0
     dev: true
 
+  registry.npmmirror.com/path-is-absolute/1.0.1:
+    resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz}
+    name: path-is-absolute
+    version: 1.0.1
+    engines: {node: '>=0.10.0'}
+
   registry.npmmirror.com/picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/picomatch/-/picomatch-2.3.1.tgz}
     name: picomatch
@@ -10447,6 +10473,32 @@ packages:
     version: 1.0.2
     dependencies:
       lowercase-keys: registry.npmmirror.com/lowercase-keys/1.0.1
+    dev: true
+
+  registry.npmmirror.com/rimraf/2.6.3:
+    resolution: {integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rimraf/-/rimraf-2.6.3.tgz}
+    name: rimraf
+    version: 2.6.3
+    hasBin: true
+    dependencies:
+      glob: registry.npmmirror.com/glob/7.2.3
+
+  registry.npmmirror.com/rimraf/2.7.1:
+    resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rimraf/-/rimraf-2.7.1.tgz}
+    name: rimraf
+    version: 2.7.1
+    hasBin: true
+    dependencies:
+      glob: registry.npmmirror.com/glob/7.2.3
+    dev: true
+
+  registry.npmmirror.com/rimraf/3.0.2:
+    resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rimraf/-/rimraf-3.0.2.tgz}
+    name: rimraf
+    version: 3.0.2
+    hasBin: true
+    dependencies:
+      glob: registry.npmmirror.com/glob/7.2.3
     dev: true
 
   registry.npmmirror.com/rxjs/7.5.1:

@@ -4,5 +4,6 @@
     "jsx": "react-jsxdev",
     "outDir": "./dist"
   },
-  "include": ["./"]
+  "include": ["./"],
+  "exclude": ["node_modules","dist"]
 }

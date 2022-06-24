@@ -8,10 +8,13 @@
     "start-client": "pnpm --filter @aproxy/client start",
     "start-server": "pnpm --filter @aproxy/server start",
     "start-bridge": "pnpm --filter @aproxy/bridge start",
-    "build": "pnpm -r build",
+    "start-utils": "pnpm --filter @aproxy/utils start",
+
+    "build": "pnpm build-utils && pnpm build-bridge && pnpm build-client && pnpm build-server",
     "build-client": "pnpm --filter @aproxy/client build",
     "build-server": "pnpm --filter @aproxy/server build",
     "build-bridge": "pnpm --filter @aproxy/bridge build",
+    "build-utils": "pnpm --filter @aproxy/utils build",
     "check-types": "pnpm -r check-types"
   },
   "engines": {
@@ -54,6 +57,7 @@
     "lint-staged": "10.4.0",
     "nodemon": "^2.0.16",
     "prettier": "2.1.2",
+    "rimraf": "3.0.2",
     "standard-version": "9.0.0",
     "stylelint": "13.7.1",
     "stylelint-config-prettier": "8.0.2",
