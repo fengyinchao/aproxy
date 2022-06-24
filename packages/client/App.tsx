@@ -9,7 +9,7 @@ const wsClient = new WSClient({ url: 'ws://localhost:8888' });
 export default () => {
   const [connected, setConnected] = useState(false);
   const setProxy = ()=>{
-    wsClient.send({type:WsMessageTypeEnum.CLIENT})
+    wsClient.send({type:WsMessageTypeEnum.CLIENT_SETPROXY})
   }
   
  

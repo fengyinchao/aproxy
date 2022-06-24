@@ -1,4 +1,4 @@
-import * as ws from 'ws';
+import ws from 'ws';
 import { Server as HTTPServer } from 'http';
 import { Server as HTTPSServer } from 'https';
 import { BehaviorSubject } from 'rxjs';
@@ -37,7 +37,6 @@ class WSServer {
       });
       socket.on('message', (message: string) => {
         const formatedMessage: IWsMessage = JSON.parse(message);
-        Log(formatedMessage);
         this.message$.next({ data: formatedMessage, socket });
       });
     });
@@ -45,18 +44,22 @@ class WSServer {
     this.checkAlive();
   }
 
-  checkAlive() {
+  private checkAlive() {
     setInterval(() => {
       this.wsServer.clients.forEach((socket: ws.WebSocket) => {
         if (!socket.alive) {
-          // eslint-disable-next-line no-console
-          console.log('===socket断开连接', socket);
+          Log('===socket断开连接');
           return socket.terminate();
         }
         socket.alive = false;
         socket.ping(null, false);
       });
     }, 10000);
+  }
+
+  send(message: IWsMessage, socket: ws.WebSocket) {
+    const strMessage = JSON.stringify(message);
+    socket.send(strMessage);
   }
 
   broadCastMessage(message: IWsMessage) {
