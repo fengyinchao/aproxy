@@ -1,5 +1,6 @@
 import { ProxyRequestItem, WsMessageTypeEnum } from '@aproxy/bridge';
 import { wsServer } from '../dev';
+import request from 'request';
 import { Log } from '../index';
 
 export const httpMiddleware = {
@@ -16,5 +17,10 @@ export const httpMiddleware = {
       { type: WsMessageTypeEnum.SERVER_PROXY_REQUEST_RES, payload: { item: proxyRequestItem } },
       wsServer.clientSocket,
     );
+    this.proxyByRequest(req, res);
+  },
+  async proxyByRequest(req, res, requestOption, responseOptions) {
+    Log(req.method, req.url);
+    request.get(req.url).pipe(res);
   },
 };

@@ -65,7 +65,7 @@ class WSServer {
 
   send(message: IWsMessage, socket: ws.WebSocket) {
     const strMessage = JSON.stringify(message);
-    socket.send(strMessage);
+    socket?.send(strMessage);
   }
 
   broadCastMessage(message: IWsMessage) {
