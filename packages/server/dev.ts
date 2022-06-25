@@ -57,31 +57,31 @@ const dev = () => {
 
   httpserver.listen(8888, () => {
     // http 请求
-    httpserver.on('request', (req, res) => {
-      const $req = req;
-      if (!$req.$requestId) {
-        $req.$requestId = uuidv4();
-      }
-      httpMiddleware.proxy($req, res);
-    });
+    // httpserver.on('request', (req, res) => {
+    //   const $req = req;
+    //   if (!$req.$requestId) {
+    //     $req.$requestId = uuidv4();
+    //   }
+    //   httpMiddleware.proxy($req, res);
+    // });
 
-    // https 请求
-    httpserver.on('connect', (req, res) => {
-      const $req = req;
-      if (!$req.$requestId) {
-        $req.$requestId = uuidv4();
-      }
-      // httpMiddleware.proxy($req, res);
-    });
+    // // https 请求
+    // httpserver.on('connect', (req, res) => {
+    //   const $req = req;
+    //   if (!$req.$requestId) {
+    //     $req.$requestId = uuidv4();
+    //   }
+    //   // httpMiddleware.proxy($req, res);
+    // });
 
-    // websocket 请求
-    httpserver.on('upgrade', (req, res) => {
-      const $req = req;
-      if (!$req.$requestId) {
-        $req.$requestId = uuidv4();
-      }
-      // httpMiddleware.proxy($req, res);
-    });
+    // // websocket 请求
+    // httpserver.on('upgrade', (req, res) => {
+    //   const $req = req;
+    //   if (!$req.$requestId) {
+    //     $req.$requestId = uuidv4();
+    //   }
+    //   // httpMiddleware.proxy($req, res);
+    // });
     Log(`Secure Server is listening on port 8888`);
   });
 };

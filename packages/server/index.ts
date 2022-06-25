@@ -1,6 +1,7 @@
 import { dev } from './dev';
-import { createDebug } from '@aproxy/utils';
-
-const Log = createDebug('@aproxy/server');
+import { debug } from '@aproxy/utils';
+const Log = debug('@aproxy/server');
 
 export { dev, Log };
+
+export * from './type';

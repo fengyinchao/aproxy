@@ -1,5 +1,5 @@
-import { createDebug } from '@aproxy/utils';
+import { debug } from '@aproxy/utils';
 
-const Log = createDebug('@aproxy/client');
+const Log = debug('@aproxy/client');
 
 export { Log };

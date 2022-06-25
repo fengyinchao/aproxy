@@ -1,5 +1,5 @@
 import WSClient from './wsClient';
-import { createDebug } from '@aproxy/utils';
+import { debug } from '@aproxy/utils';
 import { setActiveNetworkProxy, getActiveNetworkProxyStatus } from './systemProxyMac';
 
 export enum WsMessageTypeEnum {
@@ -28,6 +28,6 @@ export interface ProxyRequestItem {
   [propName: string]: any;
 }
 
-const Log = createDebug('@aproxy/bridge');
+const Log = debug('@aproxy/bridge');
 
 export { WSClient, Log, setActiveNetworkProxy, getActiveNetworkProxyStatus };

@@ -37,11 +37,11 @@ console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 const pageBuild = defineConfig({
   root: './', // html 所在位置
   optimizeDeps: {
-    include: ['@aproxy/bridge', '@aproxy/utils'],
+    include: ['@aproxy/server', '@aproxy/bridge'],
   },
   build: {
     outDir: './dist',
-    emptyOutDir: false,
+    emptyOutDir: true,
   },
   css: {
     preprocessorOptions: {

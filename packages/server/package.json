@@ -4,6 +4,9 @@
   "description": "集抓包、调试、mock 于一身的前端开发利器",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin":{
+    "aproxy":"./dist/bin/aproxy.js"
+  },
   "scripts": {
     "start": "ts-node --project tsconfig.server.json bin/aproxy.ts dev",
     "check-types": "tsc --noEmit -p ./tsconfig.server.json",
