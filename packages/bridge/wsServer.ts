@@ -16,6 +16,7 @@ class WSServer {
     socket: null,
     data: { type: WsMessageTypeEnum.INIT },
   });
+  clientSocket: ws.WebSocket | null;
 
   constructor(server: HTTPServer | HTTPSServer, noServerMode = false) {
     let wsServer: ws.Server = null;
@@ -29,7 +30,12 @@ class WSServer {
         });
       });
     }
-    wsServer.on('connection', socket => {
+    wsServer.on('connection', (socket, request) => {
+      const path = request.url;
+      if (path === '/client') {
+        this.clientSocket = socket;
+      }
+
       // 心跳监控
       socket.alive = true;
       socket.on('pong', () => {
