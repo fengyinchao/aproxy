@@ -4,7 +4,7 @@
   "description": "集抓包、调试、mock 于一身的前端开发利器",
   "main": "index.js",
   "scripts": {
-    "start": "vite",
+    "start": "vite --force",
     "start-cli": "aproxy dev",
     "build": "vite build",
     "check-types": "tsc --noEmit -p ./tsconfig.client.json"

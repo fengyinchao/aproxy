@@ -4,7 +4,7 @@
   "description": "集抓包、调试、mock 于一身的前端开发利器",
   "main": "index.js",
   "scripts": {
-    "start": "pnpm start-client & nodemon",
+    "start": "nodemon && pnpm start-client",
     "start-client": "pnpm --filter @aproxy/client start",
     "start-server": "pnpm --filter @aproxy/server start",
     "start-bridge": "pnpm --filter @aproxy/bridge start",

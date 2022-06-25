@@ -105,7 +105,9 @@ export const getActiveNetworkProxyStatus = () => {
       !!http?.Server &&
       !!https?.Server &&
       !!https?.Port &&
-      !!http?.Port;
+      !!http?.Port &&
+      !!http['Authenticated Proxy Enabled'] &&
+      !!https['Authenticated Proxy Enabled'];
     result[deviceName] = enable;
   });
 

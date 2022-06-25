@@ -1,4 +1,4 @@
-import { IWsMessage, WsMessageTypeEnum } from './index';
+import { IWsMessage, Log, WsMessageTypeEnum } from './index';
 import { BehaviorSubject } from 'rxjs';
 
 interface IWsClientConfig {
@@ -33,9 +33,9 @@ class WSClient {
     };
   }
 
-  send(data: string | IWsMessage) {
+  send(data: IWsMessage) {
     if (this.websocket?.readyState === WebSocket.OPEN) {
-      this.websocket.send(typeof data !== 'string' ? JSON.stringify(data) : data);
+      this.websocket.send(JSON.stringify(data));
     }
   }
 
