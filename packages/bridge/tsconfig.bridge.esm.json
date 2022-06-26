@@ -2,9 +2,9 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "esnext",
     "baseUrl": "./",
-    "outDir": "./dist/cjs"
+    "outDir": "./dist/esm"
   },
   "include": ["./"],
   "exclude": ["node_modules","dist"]

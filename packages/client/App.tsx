@@ -9,8 +9,8 @@ const wsClient = new WSClient({ url: 'ws://localhost:8888/client' });
 export default () => {
   const [connected, setConnected] = useState(false);
   const [proxySeted, setProxySeted] = useState(false);
-  const [proxyRequestItems,setProxyRequestItems] = useState<ProxyRequestItem[]>([])
-  const originalItems = useRef([])
+  const [proxyRequestItems, setProxyRequestItems] = useState<ProxyRequestItem[]>([]);
+  const originalItems = useRef([]);
   const setProxy = () => {
     wsClient.send({ type: WsMessageTypeEnum.CLIENT_SETPROXY });
   };
@@ -29,9 +29,9 @@ export default () => {
           setProxySeted(message.payload.msg === 'ok');
           break;
         case WsMessageTypeEnum.SERVER_PROXY_REQUEST_RES:
-          const item = message.payload.item as ProxyRequestItem
+          const item = message.payload.item as ProxyRequestItem;
           originalItems.current.push(item);
-          setProxyRequestItems([...originalItems.current])
+          setProxyRequestItems([...originalItems.current]);
           break;
         default:
           break;
@@ -48,9 +48,16 @@ export default () => {
   return (
     <div>
       <p>Websocket{connected ? '已连接' : '已断开'}</p>
-      <p>系统代理{proxySeted?'设置成功':"设置失败"}<button onClick={setProxy}>设置代理</button></p>
+      <p>
+        系统代理{proxySeted ? '设置成功' : '设置失败'}
+        <button onClick={setProxy}>设置代理</button>
+      </p>
       <ul>
-        {proxyRequestItems.map((item, key) => <li key={key}>{item.type} {item.status} {item.host} {item.path} {item.response}</li>)}
+        {proxyRequestItems.map((item, key) => (
+          <li key={key}>
+            {item.type} {item.status} {item.host} {item.path} {item.response}
+          </li>
+        ))}
       </ul>
     </div>
   );

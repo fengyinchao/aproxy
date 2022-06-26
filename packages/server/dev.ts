@@ -2,7 +2,9 @@ import { skip } from 'rxjs';
 import express from 'express';
 import fs from 'fs-extra';
 import http from 'http';
-import { getActiveNetworkProxyStatus, setActiveNetworkProxy, WsMessageTypeEnum } from '@aproxy/bridge';
+import { WsMessageTypeEnum } from '@aproxy/bridge';
+import { getActiveNetworkProxyStatus, setActiveNetworkProxy } from '@aproxy/bridge/systemProxyMac';
+
 import { getIpAddress } from '@aproxy/utils';
 import WSServer from '@aproxy/bridge/wsServer';
 import { v4 as uuidv4 } from 'uuid';

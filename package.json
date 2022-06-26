@@ -9,11 +9,15 @@
     "start-server": "pnpm --filter @aproxy/server start",
     "start-bridge": "pnpm --filter @aproxy/bridge start",
     "start-utils": "pnpm --filter @aproxy/utils start",
-    "build": "pnpm build-utils && pnpm build-bridge && pnpm build-client && pnpm build-server",
+    "build": "pnpm build-utils && pnpm build-bridge && pnpm build-server",
     "build-client": "pnpm --filter @aproxy/client build",
     "build-server": "pnpm --filter @aproxy/server build",
     "build-bridge": "pnpm --filter @aproxy/bridge build",
     "build-utils": "pnpm --filter @aproxy/utils build",
+    "build-esm": "pnpm build-esm-utils && pnpm build-esm-bridge && pnpm build-esm-server",
+    "build-esm-server": "pnpm --filter @aproxy/server build-esm",
+    "build-esm-bridge": "pnpm --filter @aproxy/bridge build-esm",
+    "build-esm-utils": "pnpm --filter @aproxy/utils build-esm",
     "check-types": "pnpm -r check-types"
   },
   "engines": {

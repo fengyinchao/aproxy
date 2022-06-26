@@ -1,11 +1,13 @@
 {
   "name": "@aproxy/utils",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "rimraf dist && tsc  -p ./tsconfig.utils.json",
-    "build": "rimraf dist && tsc  -p ./tsconfig.utils.json",
+    "build": "rimraf dist/cjs && tsc  -p ./tsconfig.utils.json",
+    "build-esm": "rimraf dist/esm && tsc  -p ./tsconfig.utils.esm.json",
     "check-types": "tsc --noEmit -p ./tsconfig.utils.json"
   },
   "npmClient": "pnpm",
@@ -14,5 +16,8 @@
   },
   "dependencies": {
     "debug": "^4.3.4"
+  },
+  "devDependencies": {
+    "rimraf": "3.0.2"
   }
 }
