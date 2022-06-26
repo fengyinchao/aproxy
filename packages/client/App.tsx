@@ -12,7 +12,7 @@ export default () => {
   const [proxyRequestItems, setProxyRequestItems] = useState<ProxyRequestItem[]>([]);
   const originalItems = useRef([]);
   const setProxy = () => {
-    wsClient.send({ type: WsMessageTypeEnum.CLIENT_SETPROXY });
+    wsClient.send({ type: WsMessageTypeEnum.CLIENT_SETPROXY ,payload:{on:!proxySeted}});
   };
 
   useEffect(() => {
@@ -49,13 +49,13 @@ export default () => {
     <div>
       <p>Websocket{connected ? '已连接' : '已断开'}</p>
       <p>
-        系统代理{proxySeted ? '设置成功' : '设置失败'}
-        <button onClick={setProxy}>设置代理</button>
+        系统代理{proxySeted ? '已开启' : '已关闭'}
+        <button onClick={setProxy}>{proxySeted?"取消代理":"设置代理"}</button>
       </p>
       <ul>
         {proxyRequestItems.map((item, key) => (
           <li key={key}>
-            {item.type} {item.status} {item.host} {item.path} {item.response}
+            {item.type} {item.status} {item.url}  {item.response}
           </li>
         ))}
       </ul>
