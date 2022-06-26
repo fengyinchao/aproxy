@@ -39,5 +39,5 @@ interface ProxyRule {
 export interface IAproxyUserConfig {
   port: number;
   https?: string[] | boolean;
-  rules: ProxyRule[];
+  rules?: ProxyRule[];
 }

@@ -1,21 +1,14 @@
-import { skip } from 'rxjs';
 import http from 'http';
-import { WsMessageTypeEnum } from '@aproxy/bridge';
-import {
-  getActiveNetworkProxyStatus,
-  setActiveNetworkProxy,
-  setActiveNetworkProxyStatus,
-} from '@aproxy/bridge/systemProxyMac';
-
-import { getIpAddress } from '@aproxy/utils';
 import WSServer from '@aproxy/bridge/wsServer';
 import { v4 as uuidv4 } from 'uuid';
-import { Log } from './index';
+import { IAproxyUserConfig, Log } from './index';
 import { httpMiddleware } from './middleware/httpMiddleware';
 import { handleCertDownLoad } from './handleCertDownLoad';
+import { getUserConfig } from './getUserConfig';
+import { handleWebsocketMessage } from './handleWebsocketMessage';
 
-const ip = getIpAddress();
 let wsServer: WSServer = null;
+let userConfig: IAproxyUserConfig = null;
 
 declare module 'http' {
   interface IncomingMessage {
@@ -23,7 +16,13 @@ declare module 'http' {
   }
 }
 
-const dev = () => {
+const dev = async () => {
+  userConfig = (await getUserConfig()).config;
+  if (!userConfig) {
+    return;
+  }
+  Log('userConfig', userConfig);
+
   const httpserver = http
     .createServer((req, res) => {
       switch (req.url) {
@@ -36,8 +35,8 @@ const dev = () => {
           break;
       }
     })
-    .listen(8888, () => {
-      Log(`Secure Server is listening on port 8888`);
+    .listen(userConfig.port, () => {
+      Log(`Secure Server is listening on port ${userConfig.port}`);
     });
 
   // 代理 http 请求
@@ -69,30 +68,7 @@ const dev = () => {
 
   // websocket server 创建及消息处理
   wsServer = new WSServer(httpserver, true);
-  wsServer.message$.pipe(skip(1)).subscribe(msg => {
-    const { socket, data } = msg;
-    Log('收到消息：', data);
-    if (data?.type === WsMessageTypeEnum.CLIENT_SETPROXY) {
-      const payload = data.payload;
-      if (payload.on) {
-        setActiveNetworkProxy({ host: ip[0], port: '8888' });
-      } else {
-        setActiveNetworkProxyStatus('off');
-      }
-      const res = getActiveNetworkProxyStatus();
-      wsServer.send(
-        { type: WsMessageTypeEnum.SERVER_GETPROXY_RES, payload: { msg: res['Wi-Fi'] ? 'ok' : 'error' } },
-        socket,
-      );
-    }
-    if (data?.type === WsMessageTypeEnum.CLIENT_GETPROXY) {
-      const res = getActiveNetworkProxyStatus();
-      wsServer.send(
-        { type: WsMessageTypeEnum.SERVER_GETPROXY_RES, payload: { msg: res['Wi-Fi'] ? 'ok' : 'error' } },
-        socket,
-      );
-    }
-  });
+  handleWebsocketMessage(wsServer);
 };
 
-export { wsServer, dev };
+export { wsServer, dev, userConfig };

@@ -6,6 +6,7 @@ import fs from 'fs-extra';
 import fetch from 'node-fetch';
 import { Log } from '../index';
 import mime from 'mime';
+import { OutgoingHttpHeaders } from 'http';
 
 export const httpMiddleware = {
   async proxy(req: http.IncomingMessage, res: http.ServerResponse) {
@@ -21,9 +22,7 @@ export const httpMiddleware = {
     const requestHeaders = req.headers;
     const requestContentType = requestHeaders['content-type'];
     const body = await response.text();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    res.writeHead(response.status, response.headers);
+    res.writeHead(response.status, (response.headers as unknown) as OutgoingHttpHeaders);
     res.end(body);
     const proxyRequestItem: ProxyRequestItem = {
       type: req.headers.location?.includes('https') ? 'https' : 'http',

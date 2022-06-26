@@ -62,6 +62,7 @@ module.exports = {
         '@typescript-eslint/no-floating-promises': 'off', // promise 要有错误处理
         '@typescript-eslint/switch-exhaustiveness-check': 'off', // switch 必须命中一个case
         '@typescript-eslint/no-dynamic-delete': 'off', // 动态删除属性
+        '@typescript-eslint/ban-ts-comment': 'off',
         ...jsTsCustomRules,
       },
     },
