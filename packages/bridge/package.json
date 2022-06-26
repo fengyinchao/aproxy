@@ -13,7 +13,7 @@
 
   },
   "scripts": {
-    "start": "rimraf dist && tsc -p ./tsconfig.bridge.json",
+    "start": "rimraf dist && tsc -p ./tsconfig.bridge.esm.json",
     "build": "rimraf dist/cjs && tsc -p ./tsconfig.bridge.json",
     "build-esm": "rimraf dist/esm && tsc -p ./tsconfig.bridge.esm.json",
     "check-types": "tsc --noEmit -p ./tsconfig.bridge.json"

@@ -5,7 +5,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "rimraf dist && tsc  -p ./tsconfig.utils.json",
+    "start": "rimraf dist && tsc  -p ./tsconfig.utils.esm.json",
     "build": "rimraf dist/cjs && tsc  -p ./tsconfig.utils.json",
     "build-esm": "rimraf dist/esm && tsc  -p ./tsconfig.utils.esm.json",
     "check-types": "tsc --noEmit -p ./tsconfig.utils.json"

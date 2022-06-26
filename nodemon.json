@@ -2,5 +2,5 @@
   "watch": ["packages/server","!packages/server/dist","packages/bridge","!packages/bridge/dist","packages/utils","!packages/utils/dist"],
   "ignore": ["**/*.spec.ts"],
   "ext": "ts",
-  "exec": "yarn start-utils && yarn start-bridge && yarn start-server"
+  "exec": "yarn build-utils && yarn build-bridge && pnpm --filter @aproxy/server start"
 }
