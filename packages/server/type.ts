@@ -36,8 +36,22 @@ interface ProxyRule {
   debug?: boolean | 'vconsole';
 }
 
+type IPluginFn = (...args: any[]) => string;
+
 export interface IAproxyUserConfig {
   port: number;
   https?: string[] | boolean;
-  rules?: ProxyRule[];
+  htmlRule: {
+    pattern: string;
+    proxyTo: string;
+  };
+  staticRule: {
+    pattern: string;
+    proxyTo: string;
+  }[];
+  apiRule: {
+    pattern: string;
+    proxyTo: string;
+  }[];
+  plugins: IPluginFn[];
 }
