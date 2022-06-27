@@ -9,3 +9,5 @@ export const getOsName = () => {
 export const getComputerName = () => {
   return os.hostname().replace(/\.\w+/g, '');
 };
+
+export const isMac = os.platform().includes('darwin');

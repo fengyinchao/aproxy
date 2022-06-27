@@ -3,14 +3,13 @@
   "version": "0.0.1",
   "description": "集抓包、调试、mock 于一身的前端开发利器",
   "types": "dist/cjs/index.d.ts",
-  "exports":{
-    ".":{
-      "import":"./dist/esm/index.js",
-      "require":"./dist/cjs/index.js"
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     },
-    "./wsServer":"./dist/cjs/wsServer.js",
-    "./systemProxyMac":"./dist/cjs/systemProxyMac.js"
-
+    "./wsServer": "./dist/cjs/wsServer.js",
+    "./systemProxyMac": "./dist/cjs/systemProxyMac.js"
   },
   "scripts": {
     "start": "rimraf dist && tsc -p ./tsconfig.bridge.esm.json",

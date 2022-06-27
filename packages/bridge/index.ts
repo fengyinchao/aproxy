@@ -19,10 +19,8 @@ export interface IWsMessage<T = Record<string, unknown>> {
 
 export interface ProxyRequestItem {
   type: 'http' | 'https' | 'websocket';
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'HEAD';
+  method: string;
   status: number;
-  host: string;
-  path: string;
   response: string;
   [propName: string]: any;
 }
