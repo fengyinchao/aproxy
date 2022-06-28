@@ -1,9 +1,14 @@
 {
   "name": "@aproxy/utils",
   "version": "0.0.1",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/esm/index.d.ts",
+  "exports":{
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./os": "./dist/cjs/os.js"
+  },
   "scripts": {
     "start": "rimraf dist && tsc  -p ./tsconfig.utils.esm.json",
     "build": "rimraf dist/cjs && tsc  -p ./tsconfig.utils.json",

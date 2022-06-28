@@ -10,4 +10,19 @@ export const getComputerName = () => {
   return os.hostname().replace(/\.\w+/g, '');
 };
 
-export const isMac = os.platform().includes('darwin');
+export const getIpAddress = () => {
+  const ifaces = os.networkInterfaces();
+  const Ips: string[] = [];
+  for (const dev in ifaces) {
+    if (['以太网', 'en0'].includes(dev)) {
+      (ifaces[dev] || []).forEach(details => {
+        if (details.family === 'IPv4') {
+          Ips.push(details.address);
+        }
+      });
+    }
+  }
+  return Ips;
+};
+
+export const isMac = getOsName().includes('darwin');

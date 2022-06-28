@@ -1,7 +1,7 @@
 import WSServer from '@aproxy/bridge/wsServer';
 import { skip } from 'rxjs';
 import { WsMessageTypeEnum } from '@aproxy/bridge';
-import { getIpAddress, isMac } from '@aproxy/utils';
+import { getIpAddress, isMac } from '@aproxy/utils/os';
 import {
   getActiveNetworkProxyStatus,
   setActiveNetworkProxy,
