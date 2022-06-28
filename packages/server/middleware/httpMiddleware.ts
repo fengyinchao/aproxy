@@ -1,5 +1,5 @@
 import { ProxyRequestItem, WsMessageTypeEnum } from '@aproxy/bridge';
-import { wsServer } from '../dev';
+import { userConfig, wsServer } from '../dev';
 import http from 'http';
 import path from 'path';
 import fs from 'fs-extra';
@@ -10,14 +10,27 @@ import { OutgoingHttpHeaders } from 'http';
 
 export const httpMiddleware = {
   async proxy(req: http.IncomingMessage, res: http.ServerResponse) {
-    if (req.url.includes('.json')) {
-      this.proxyByLocalServer(req, res);
+    const { htmlRule, staticRule, apiRule } = userConfig;
+    if (req.url.includes(htmlRule.pattern)) {
+      this.proxyToLocalServer(req, res, htmlRule.proxyTo, true);
+    }
+    if (req.url.includes(apiRule[0].pattern)) {
+      this.proxyToLocalFile(req, res);
+    } else if (req.url.includes(staticRule[0].pattern)) {
+      this.proxyToLocalServer(req, res, staticRule[0].proxyTo);
     } else {
-      this.proxyByRequest(req, res);
+      // this.proxyToRequest(req, res);
     }
   },
 
-  async proxyByRequest(req: http.IncomingMessage, res: http.ServerResponse) {
+  async proxyToLocalServer(req: http.IncomingMessage, res: http.ServerResponse, server: string, isHtml = false) {
+    const response = await fetch(isHtml ? server : `${server}/js/peace-handbook.js`);
+    const body = await response.text();
+    res.writeHead(response.status, (response.headers as unknown) as OutgoingHttpHeaders);
+    res.end(body);
+  },
+
+  async proxyToRequest(req: http.IncomingMessage, res: http.ServerResponse) {
     const response = await fetch(req.url);
     const requestHeaders = req.headers;
     const requestContentType = requestHeaders['content-type'];
@@ -38,7 +51,7 @@ export const httpMiddleware = {
     Log(req.url, requestContentType, response.headers);
   },
 
-  async proxyByLocalServer(req: http.IncomingMessage, res: http.ServerResponse) {
+  async proxyToLocalFile(req: http.IncomingMessage, res: http.ServerResponse) {
     const filepath = path.join(__dirname, '../mock/test.json');
     const readStream = fs.createReadStream(filepath);
     const fileContentType = mime.getType(filepath);

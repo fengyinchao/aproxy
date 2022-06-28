@@ -6,6 +6,7 @@ import { httpMiddleware } from './middleware/httpMiddleware';
 import { handleCertDownLoad } from './handleCertDownLoad';
 import { getUserConfig } from './getUserConfig';
 import { handleWebsocketMessage } from './handleWebsocketMessage';
+import { Socket } from 'net';
 
 let wsServer: WSServer = null;
 let userConfig: IAproxyUserConfig = null;
@@ -55,11 +56,11 @@ const dev = async () => {
     if (!req.requestId) {
       req.requestId = uuidv4();
     }
-    // httpMiddleware.proxy(req, res);
+    httpMiddleware.proxy(req, res);
   });
 
   // 代理 websocket 请求
-  httpserver.on('upgrade', (req: http.IncomingMessage, res: http.ServerResponse) => {
+  httpserver.on('upgrade', (req: http.IncomingMessage, socket: Socket, head: Buffer) => {
     if (!req.requestId) {
       req.requestId = uuidv4();
     }
